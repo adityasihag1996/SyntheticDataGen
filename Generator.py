@@ -108,7 +108,7 @@ def runner(ds, vocab_v, mt, verbose):
         return
 
     try:
-        os.mkdir("Train")
+        os.mkdir("Images")
     except FileExistsError:
         print("Train Directory exists!")
 
