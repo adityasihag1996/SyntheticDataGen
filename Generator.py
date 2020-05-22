@@ -64,7 +64,7 @@ def get_color(brightness, sample = False):
     return color_brightness, R, G, B, T
 
 
-def get_text_image(it, dataset_size, hindi_vocab, background_images, Fonts):
+def get_text_image(it, dataset_size, hindi_vocab, background_images, Fonts, verbose):
     text = random.choice(hindi_vocab)
     back = random.choice(background_images)
     font = random.choice(Fonts)
@@ -90,8 +90,9 @@ def get_text_image(it, dataset_size, hindi_vocab, background_images, Fonts):
     f = open("Ground_truths.txt", "a+")
     f.write(str(it) + " " + text + "\n")
     f.close()
-
-    print("Actual progress:- ", (it+1), " / ", dataset_size)
+    
+    if verbose:
+      print("Actual progress:- ", (it+1), " / ", dataset_size)
 
     return im1
 
@@ -138,12 +139,12 @@ def runner(ds, vocab_v, mt, verbose):
 
     if mt:
         pool = mp.Pool(mp.cpu_count())
-        [pool.apply_async(get_text_image, args=(i, dataset_size, hindi_vocab, background_images, Fonts)) for i in range(dataset_size)]
+        [pool.apply_async(get_text_image, args=(i, dataset_size, hindi_vocab, background_images, Fonts, verbose)) for i in range(dataset_size)]
         pool.close()
         pool.join()
     else:
         for i in range(dataset_size):
-            get_text_image(i, dataset_size, hindi_vocab, background_images, Fonts)
+            get_text_image(i, dataset_size, hindi_vocab, background_images, Fonts, verbose)
 
     print("Dataset generation complete!")
     
