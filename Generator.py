@@ -43,19 +43,19 @@ def get_color(brightness, sample = False):
     T = random.randint(175, 255)
     
     color_brightness = 0
-    if brightness > 130:
+    if brightness > 135:
         color_brightness = 0
         while True:
             R, G, B = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
             color_brightness = math.sqrt(0.299*(R**2) + 0.587*(G**2) + 0.114*(B**2))
-            if color_brightness < 10:
+            if color_brightness < 20:
                 break
-    elif brightness < 130:
+    elif brightness < 135:
         color_brightness = 0
         while True:
             R, G, B = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
             color_brightness = math.sqrt(0.299*(R**2) + 0.587*(G**2) + 0.114*(B**2))
-            if color_brightness > 240:
+            if color_brightness > 230:
                 break
     
     if sample:
