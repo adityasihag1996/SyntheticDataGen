@@ -87,7 +87,7 @@ def get_text_image(it, dataset_size, hindi_vocab, background_images, Fonts):
     im1 = base.crop((0, 0, w.size[0]+3, w.size[1]+3))
     im1.save("Train/"+str(it)+".jpg")
     
-    f = open("annotations.txt", "a+")
+    f = open("Ground_truths.txt", "a+")
     f.write(str(it) + " " + text + "\n")
     f.close()
 
