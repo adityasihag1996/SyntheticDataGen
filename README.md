@@ -19,15 +19,15 @@ python3 Generator.py "dataset_size" -lv -v -mt
 
 Use the following args for the following use:
 
-  dataset_size   ->   Size of the generated dataset
+-  dataset_size   ->   Size of the generated dataset
 
-  -h, --help   ->   show this help message and exit
+-  -h, --help   ->   show this help message and exit
   
-  -lv, --large_vocab   ->   Use Large Vocab, Default is Small Vocab
+-  -lv, --large_vocab   ->   Use Large Vocab, Default is Small Vocab
   
-  -v, --verbose   ->   (Verbose) Display progress of generation
+-  -v, --verbose   ->   (Verbose) Display progress of generation
   
-  -mt, --multithreading   ->   Use multithreading
+-  -mt, --multithreading   ->   Use multithreading
 
 This will create "dataset_size" images in the directory "Images", with random backgrounds chosen from the Backgrounds folder and a random word form the vocab file.
 
