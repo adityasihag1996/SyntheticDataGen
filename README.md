@@ -36,3 +36,20 @@ Large vocab consists of 208162 hindi words. Small vocab consists of 9948 hindi w
 
 
 This will create "dataset_size" images in the directory `/Images`, with random backgrounds chosen from the `/Backgrounds` folder and a random word form the vocab file you choose.
+
+
+**Sample Image:**
+
+![Synthetic Scene-Text-Hindi Samples](sample.jpg "Samples")
+
+
+Ground truths would be stored in `/Ground_truths.txt` file, in the following format:
+```
+"Image_number" "ground_truth"
+```
+
+Example:
+```
+20 कबीरा
+```
+Which means, `कबीरा` is drawn on `Images/20.jpg` file.
