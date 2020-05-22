@@ -19,12 +19,7 @@ python3 Generator.py "dataset_size" -lv -v -mt
 
 Use the following args for the following use:
 
-Positional arguments:
-
   dataset_size   ->   Size of the generated dataset
-
-
-Optional arguments:
 
   -h, --help   ->   show this help message and exit
   
@@ -33,3 +28,9 @@ Optional arguments:
   -v, --verbose   ->   (Verbose) Display progress of generation
   
   -mt, --multithreading   ->   Use multithreading
+
+This will create "dataset_size" images in the directory "Images", with random backgrounds chosen from the Backgrounds folder and a random word form the vocab file.
+
+
+You have an option to choose between 2 vocab files, Large_vocab_file.txt and Small_vocab_file.txt.
+Large vocab consists of 208162 hindi words. Small vocab consists of 9948 hindi words.
