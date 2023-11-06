@@ -123,3 +123,5 @@ def generate_and_crop_image(words, backgrounds, fonts, output_path):
     
     # Save the cropped image
     cropped_image.save(output_path)
+
+    return word

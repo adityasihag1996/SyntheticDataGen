@@ -22,12 +22,19 @@ pip install -r requirements.txt
 
 Navigate to the cloned repository's directory and execute the script with the required parameters:
 
+For Multi-text in image
 ```
 python runner.py -n <number_of_images> -lv [--large_vocab]
 ```
 
+For single-centred-text in image
+```
+python runner.py -n <number_of_images> -lv [--large_vocab] -s
+```
+
 + **-n** or **--dataset_size** is a required argument that specifies the number of images to generate.
 + **-lv** or **--large_vocab** is an optional flag. When specified, the script will use a large vocabulary set; otherwise, it defaults to a small vocabulary.
++ **-s** or **--single** is a required argument which ensures single centred text image generations.
 
 
 ## Output
@@ -48,10 +55,11 @@ SyntheticDataGen/
 ## Sample Image
 Below is a sample image from the generated dataset:
 
-![Sample Image](/sample.png "Sample Image Title")
+![Sample Image](/sample_multi.png "Sample Image Title")
+![Sample Image](/sample_single.png "Sample Image Title")
 
 ## Sample Ground Truth
-Here's an example of the contents of the ground_truths.txt file:
+Here's an example of the contents of the ground_truths_multi.txt file:
 ```
 image_0.png,word1,(x1,y1,x2,y2)
 image_0.png,word2,(x3,y3,x4,y4)
@@ -59,6 +67,14 @@ image_1.png,word3,(x5,y5,x6,y6)
 ...
 ```
 Coordinates are in the format (x1,y1,x2,y2), where (x1,y1) is the top-left corner and (x2,y2) is the bottom-right corner of the bounding box.
+
+Here's an example of the contents of the ground_truths_single.txt file:
+```
+image_0.png,word1
+image_0.png,word2
+image_1.png,word3
+...
+```
 
 ## To Do
 
