@@ -1,55 +1,18 @@
-# Synthetic Dataset Generator (Hindi)
+# Synthetic Dataset Generator
 
-Synthetically create a dataset of images of Devanagari text drawn on images
+## Overview
+This project provides a tool for generating a synthetic dataset of images with text overlay. It is designed to create images with random words from either a small or large vocabulary, placed on a variety of background images and using different font styles. This dataset can be useful for various computer vision and machine learning tasks such as OCR (Optical Character Recognition), text detection, and more.
 
-**Prerequisites:**
-- Python 3.5 and above
-- PIL (Image)
-- numpy
-- matplotlib
+## Features
+- Generation of custom-sized datasets.
+- Selection between small and large vocabularies.
+- Use of custom background images and fonts.
+- Output images and ground truth data stored neatly in designated directories.
 
-**You will also need to install Pillow’s require external libraries before you run the code.
-The libraries enables PIL to draw complex fonts like Devanagari on images correctly.**
+## Prerequisites
+Before running the script, make sure you have installed the required dependencies:
 
-Follow the steps on Pillow's Installation page to install libraries correctly, depending on what system you are using: https://pillow.readthedocs.io/en/stable/installation.html
-
-**How to run script:**
-```
-python3 Generator.py "dataset_size" -lv -v -mt
-```
-
-Use the following args for the following use:
-
--  dataset_size   ->   Number of Images to generate
-
--  -h, --help   ->   Show this help message and exit
-  
--  -lv, --large_vocab   ->   Use Large Vocab, Default is Small Vocab
-  
--  -v, --verbose   ->   (Verbose) Display progress of generation
-  
--  -mt, --multithreading   ->   Use multithreading
+```bash
+pip install -r requirements.txt
 
 
-You have an option to choose between 2 vocab files, `Large_vocab_file.txt` and `Small_vocab_file.txt`.
-Large vocab consists of 208162 hindi words. Small vocab consists of 9948 hindi words.
-
-
-This will create "dataset_size" images in the directory `/Images`, with random backgrounds chosen from the `/Backgrounds` folder and a random word form the vocab file you choose.
-
-
-**Sample Image:**
-
-![Synthetic Scene-Text-Hindi Samples](sample.jpg "Samples")
-
-
-Ground truths would be stored in `/Ground_truths.txt` file, in the following format:
-```
-"Image_number" "ground_truth"
-```
-
-Example:
-```
-20 कबीरा
-```
-Which means, `कबीरा` is drawn on `Images/20.jpg` file.
