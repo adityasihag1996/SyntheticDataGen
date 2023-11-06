@@ -10,7 +10,7 @@ def parse_opt():
 
     parser.add_argument("-n", "--dataset_size", type=int, required=True,
                         help="Size of the generated dataset, must be an integer.")
-    parser.add_argument("-hi", "--hindi", action="store_const", const="english", default="english",
+    parser.add_argument("-hi", "--hindi", action="store_true", default=False,
                     help="Vocabulary language: 'English' by default, 'hindi' if this option is specified")
     parser.add_argument("-s", "--single", action="store_true", default=False,
                     help="Do you want to generate single word images?")
