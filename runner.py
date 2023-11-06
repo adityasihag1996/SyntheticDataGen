@@ -53,7 +53,7 @@ def generate_single_images(n, words, backgrounds, fonts, output_dir = 'gen_singl
             word = generate_and_crop_image(words, backgrounds, fonts, output_path)
             
             # Write ground truths for the current image to the file
-            gt_file.write(f"{image_name},{word}")
+            gt_file.write(f"{image_name},{word}\n")
 
     print("Generation Complete!")
 
