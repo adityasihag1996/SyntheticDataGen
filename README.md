@@ -62,7 +62,7 @@ SyntheticDataGen/
 Below is a sample image from the generated dataset:
 
 ![Sample Image](/sample_mul.png "Sample Image Title")
-![Sample Image](/sample_sing.png "Sample Image Title")
+![Sample Image](/sample_sin.png "Sample Image Title")
 
 ## Sample Ground Truth
 Here's an example of the contents of the ground_truths_multi.txt file:
