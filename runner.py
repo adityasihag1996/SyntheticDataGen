@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     # Store Words Images in memory
     hindi_vocab = []
-    with open(f"{vocab_v}_hindi_vocab.txt", "r") as f:
+    with open(f"{vocab_v}_vocab.txt", "r") as f:
         lines = f.readlines()
     for word in lines:
         hindi_vocab.append(word[:-1])
