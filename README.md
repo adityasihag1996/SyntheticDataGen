@@ -43,12 +43,18 @@ The script generates images and stores them in the `/generated_images` directory
 ```
 SyntheticDataGen/
 │
-├── generated_images_/
+├── generated_single_images_/
 │ ├── image_0.png
-│ ├── image_0.png
+│ ├── image_1.png
 │ └── ...
 │
-└── ground_truths.txt
+├── generated_multi_images_/
+│ ├── image_0.png
+│ ├── image_1.png
+│ └── ...
+|
+├── ground_truths_single.txt
+└── ground_truths_multi.txt
 ```
 
 
