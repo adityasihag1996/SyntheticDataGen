@@ -71,3 +71,55 @@ def create_random_words_image(words, backgrounds, fonts, output_path='output_ima
     # Return the ground truths
     return ground_truths
 
+
+# Function to create an image with 1 word placed on it, and cropped output
+def generate_and_crop_image(words, backgrounds, fonts, output_path):
+    background_path = random.choice(backgrounds)
+    background = Image.open(background_path)
+    background_width, background_height = background.size
+    draw = ImageDraw.Draw(background)
+
+    # Determine how many words to display (3-6)
+    word = random.choice(words)
+
+    # Load background and determine its size
+    background = Image.open(background_path)
+    background_width, background_height = background.size
+
+    # Set an initial large font size
+    font_size = 25
+    font_path = random.choice(fonts)
+    font = ImageFont.truetype(font_path, font_size)
+    
+    # Create a draw object
+    draw = ImageDraw.Draw(background)
+    
+    # Find the best font size that makes the word span edge to edge
+    text_width, text_height = draw.textsize(word, font=font)
+    while text_width < background_width and text_height < background_height:
+        # Increment the font size until the text width is larger than the background width
+        font_size += 1
+        font = ImageFont.truetype(font_path, font_size)
+        text_width, text_height = draw.textsize(word, font=font)
+    
+    # Once we have a font size that's too large, step back to the previous size
+    font_size -= 1
+    font = ImageFont.truetype(font_path, font_size)
+    text_width, text_height = draw.textsize(word, font=font)
+    
+    # Calculate the position to start the text to be centered
+    x = (background_width - text_width) // 2
+    y = (background_height - text_height) // 2
+
+    brightness = get_brightness(background)
+    text_color = get_color(brightness)
+    
+    # Draw the text
+    draw.text((x, y), word, font=font, fill=text_color[1:4])
+    
+    # Crop the image to the text
+    bbox = (x, y, x + text_width, y + text_height)
+    cropped_image = background.crop(bbox)
+    
+    # Save the cropped image
+    cropped_image.save(output_path)

@@ -2,3 +2,8 @@
 __pycache__
 .ipynb_checkpoints
 ground_truths.txt
+ground_truths_single.txt
+ground_truths_multi.txt
+gen_single_images/
+gen_multi_images/
+test_local.py
