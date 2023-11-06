@@ -34,7 +34,7 @@ python runner.py -n <number_of_images> -lv [--large_vocab]
 The script generates images and stores them in the `/generated_images` directory. A single ground truth file named `/ground_truths.txt` is created, containing the filename, word, and bounding box coordinates for each word in the images.
 
 ```
-SyntheticDatasetGenerator/
+SyntheticDataGen/
 │
 ├── generated_images_/
 │ ├── image_0.png
