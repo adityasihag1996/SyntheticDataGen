@@ -10,8 +10,8 @@ def parse_opt():
 
     parser.add_argument("-n", "--dataset_size", type=int, required=True,
                         help="Size of the generated dataset, must be an integer.")
-    parser.add_argument("-lv", "--large_vocab", action="store_const", const="large", default="small",
-                    help="Vocabulary size: 'small' by default, 'large' if this option is specified")
+    parser.add_argument("-hi", "--hindi", action="store_const", const="english", default="english",
+                    help="Vocabulary language: 'English' by default, 'hindi' if this option is specified")
     parser.add_argument("-s", "--single", action="store_true", default=False,
                     help="Do you want to generate single word images?")
 
@@ -64,15 +64,18 @@ if __name__ == '__main__':
     args = parse_opt()
 
     n = args.dataset_size
-    vocab_v = args.large_vocab
+    hindi = args.hindi
     single = args.single
 
     # Store Words Images in memory
-    hindi_vocab = []
-    with open(f"{vocab_v}_vocab.txt", "r") as f:
-        lines = f.readlines()
-    for word in lines:
-        hindi_vocab.append(word[:-1])
+    vocab = []
+    if hindi:
+        with open(f"hindi_vocab.txt", "r") as f:
+            lines = f.readlines()
+        for word in lines:
+            vocab.append(word[:-1])
+    else:
+        vocab = None
 
     # Store Background Images in memory
     background_images = []
@@ -88,7 +91,7 @@ if __name__ == '__main__':
 
     # The actual execution entry point is here:
     if single:
-        generate_single_images(n, hindi_vocab, background_images, fonts)
+        generate_single_images(n, vocab, background_images, fonts)
     else:
-        generate_multi_images(n, hindi_vocab, background_images, fonts)
+        generate_multi_images(n, vocab, background_images, fonts)
 

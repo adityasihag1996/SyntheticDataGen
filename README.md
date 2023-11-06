@@ -33,7 +33,7 @@ python runner.py -n <number_of_images> -lv [--large_vocab] -s
 ```
 
 + **-n** or **--dataset_size** is a required argument that specifies the number of images to generate.
-+ **-lv** or **--large_vocab** is an optional flag. When specified, the script will use a large vocabulary set; otherwise, it defaults to a small vocabulary.
++ **-hi** or **--hindi** is an optional flag. When specified, the script will use a hindi vocabulary set; otherwise, it defaults to a english vocabulary.
 + **-s** or **--single** is a required argument which ensures single centred text image generations.
 
 

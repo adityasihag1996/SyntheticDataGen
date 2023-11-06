@@ -45,3 +45,11 @@ def get_color(brightness):
 # A utility function to calculate the bounding box of the text
 def calculate_text_bbox(draw, text, font):
     return draw.textbbox((0, 0), text, font=font)
+
+
+# generate a random ascii word with "a-zA-Z0-9"
+def generate_random_english_word(length):
+    word = ""
+    for i in range(length):
+        word += chr(random.randint(33, 126))
+    return word

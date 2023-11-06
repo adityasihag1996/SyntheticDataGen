@@ -1,7 +1,7 @@
 import random
 from PIL import Image, ImageDraw, ImageFont
 
-from utils import check_overlap, get_brightness, get_color
+from utils import check_overlap, get_brightness, get_color, generate_random_english_word
 
 # Function to create an image with random words placed on it
 def create_random_words_image(words, backgrounds, fonts, output_path='output_image.png'):
@@ -12,7 +12,10 @@ def create_random_words_image(words, backgrounds, fonts, output_path='output_ima
 
     # Determine how many words to display (3-6)
     num_words = random.randint(3, 6)
-    chosen_words = random.sample(words, num_words)
+    if words:
+        chosen_words = random.sample(words, num_words)
+    else:
+        chosen_words = [generate_random_english_word(random.randint(3, 10)) for _ in range(num_words)]
 
     # List to keep track of word placements to avoid overlap
     placements = []
@@ -80,7 +83,10 @@ def generate_and_crop_image(words, backgrounds, fonts, output_path):
     draw = ImageDraw.Draw(background)
 
     # Determine how many words to display (3-6)
-    word = random.choice(words)
+    if words:
+        word = random.choice(words)
+    else:
+        word = generate_random_english_word(random.randint(3, 10))
 
     # Load background and determine its size
     background = Image.open(background_path)
